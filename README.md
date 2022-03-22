@@ -7,13 +7,13 @@ You can Download App according to your operation system
 - Windows (EXE)
   Coming soon ...
   
-- ### [Linux](https://github.com/Ali-Hassanii/flutter_vpn_client/App/Linux.zip)
+- ### [Linux](https://github.com/Ali-Hassanii/flutter_vpn_client/blob/main/App/Linux.zip)
   Extract `.zip` file and run program by double click or `./flutter_vpn_client` command.
 
 - ### MacOs
   required Apple machine
   
-- ### [Android (APK)](https://github.com/Ali-Hassanii/flutter_vpn_client/App/Android.apk)
+- ### [Android (APK)](https://github.com/Ali-Hassanii/flutter_vpn_client/blob/main/App/Android.apk)
   Download and open `.APK` file.
 
 - ### IOS
