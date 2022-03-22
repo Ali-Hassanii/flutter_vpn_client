@@ -17,12 +17,14 @@ class Manager extends StatelessWidget {
           onPrimary: Colors.white,
           onSurface: Colors.white,
           background: Colors.blueAccent,
+          surface: Colors.blueAccent,
+
         ),
       ),
       initialRoute: '/Home',
       routes: {
         '/Home': (context) => const Home(),
-        '/LocationMenu': (context) => const LocationMenu(),
+        '/LocationMenu': (context) => LocationMenu(),
       },
     );
   }

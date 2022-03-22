@@ -2,41 +2,40 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'dart:convert';
 
-class ServerInfo {
-  String name;
-  String address;
-  String username;
-  String password;
 
-  ServerInfo(this.name, this.address, this.password, this.username);
-}
-
-class Servers {
-  Future<File> get _serversListPath async {
+class StoreServers {
+  // initial file path
+  Future<File> file() async {
     final Directory directory = await getApplicationDocumentsDirectory();
     return File(directory.path + '/servers.json');
   }
 
-  Future<Map?> loadServers() async {
+  // to load data from file
+  Future<List> loadServers() async {
     try {
-      final serverList = await _serversListPath;
-      return json.decode(await serverList.readAsString());
+      final File _file = await file();
+      final List data = jsonDecode(await _file.readAsString());
+      return data;
     } catch (e) {
-      return null;
+      return [];
     }
   }
 
-  Future<File> addServers(ServerInfo serverInfo) async {
-    File file = await _serversListPath;
-
-    Map<String, dynamic> info = {
-      'name': serverInfo.name,
-      'address': serverInfo.address,
-      'username': serverInfo.username,
-      'password': serverInfo.password,
-    };
-    Map? data = await loadServers();
-    data?.addAll(info);
-    return file.writeAsString(data.toString());
+  // add data
+  Future<File> addServer(Map info) async {
+    final String formatInfo = jsonEncode(info);
+    final File _file = await file();
+    final List data = await loadServers();
+    data.add(formatInfo);
+    return _file.writeAsString(jsonEncode(data));
   }
+
+  // TODO: remove data
+}
+
+class TextFieldProperties {
+  String label;
+  double padding = 5;
+  bool isPassword;
+  TextFieldProperties(this.label, this.isPassword);
 }

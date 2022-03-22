@@ -50,176 +50,174 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
         body: Container(
-        decoration: const BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
-          colors: [
-            Colors.blue,
-            Colors.deepPurple,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        )),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const SizedBox(height: 2),
-            Row(
-              children: [
-                const SizedBox(width: 15),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.menu,
-                      size: 28,
-                      color: onPrimaryColor,
-                    )),
-                const SizedBox(width: 25),
-                const Text(
-                  'VPN client',
-                  style: TextStyle(fontSize: 20, color: onPrimaryColor),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Container(),
-                )
-              ],
-            ),
-            const Text(
-              'Not Connected',
-              style: TextStyle(
-                fontSize: 25,
-                color: onPrimaryColor,
-              ),
-            ),
-            OutlinedButton(
-              onPressed: () => Navigator.pushNamed(context, '/LocationMenu'),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Icon(
-                    Icons.edit_location_rounded,
-                    color: onPrimaryColor,
-                  ),
-                  Text(
-                    'Change Location',
-                    style: TextStyle(color: onPrimaryColor),
-                  ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    color: onPrimaryColor,
+            colors: [
+              Colors.blue,
+              Colors.deepPurple,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            )
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const SizedBox(height: 2),
+              Row(
+                children: [
+                  const SizedBox(width: 15),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.menu,
+                        size: 28,
+                        color: onPrimaryColor,
+                      )),
+                  const SizedBox(width: 25),
+                  const Text(
+                    'VPN client',
+                    style: TextStyle(fontSize: 20, color: onPrimaryColor),
                   ),
                 ],
               ),
-              style: OutlinedButton.styleFrom(
-                  fixedSize: const Size(220, 70),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18),
-                  )),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.info_outline,
-                    color: onPrimaryColor,
-                  ),
-                ),
-                const Text(
-                  'Just for telegram',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: onPrimaryColor,
-                  ),
-                ),
-                Switch(
-                  value: useProxy,
-                  onChanged: (value) => setState(() {
-                    useProxy = value;
-                  }),
-                  activeColor: onPrimaryColor,
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Stack(
-                alignment: AlignmentDirectional.center,
-                children: containersValue
-                    .map((value) => Opacity(
-                          opacity: value.containerOpacity,
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 300),
-                            width: value.containerSize,
-                            height: value.containerSize,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: value.containerColors,
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                              ),
-                              shape: BoxShape.circle,
-                            ),
-                            child: value.containerChild,
-                          ),
-                        ))
-                    .toList()),
-            const SizedBox(height: 20),
-            Container(
-              width: 300,
-              height: 70,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.topRight,
-                      colors: [
-                        Colors.pink,
-                        Color.fromRGBO(43, 117, 147, 1.0),
-                        Colors.lightBlue
-                      ])),
-              child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20))),
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const Icon(
-                      Icons.attach_money,
-                      size: 35,
-                      color: onPrimaryColor,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'Buy full version',
-                          style: TextStyle(fontSize: 20, color: onPrimaryColor),
-                        ),
-                        Text(
-                          'Fast and unlimited',
-                          style: TextStyle(color: onPrimaryColor),
-                        ),
-                      ],
-                    ),
-                    const Icon(
-                      Icons.arrow_forward_ios,
-                      color: onPrimaryColor,
-                    )
-                  ],
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(),
+                  )
+                ],
+              ),
+              const Text(
+                'Not Connected',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: onPrimaryColor,
                 ),
               ),
-            )
-          ],
-        ),
-      )
-    );
+              OutlinedButton(
+                onPressed: () => Navigator.pushNamed(context, '/LocationMenu'),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    Icon(
+                      Icons.edit_location_rounded,
+                      color: onPrimaryColor,
+                    ),
+                    Text(
+                      'Change Location',
+                      style: TextStyle(color: onPrimaryColor),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: onPrimaryColor,
+                    ),
+                  ],
+                ),
+                style: OutlinedButton.styleFrom(
+                    fixedSize: const Size(220, 70),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18),
+                    )),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const IconButton(
+                    onPressed: null,
+                    icon: Icon(
+                      Icons.info_outline,
+                      color: onPrimaryColor,
+                    ),
+                  ),
+                  const Text(
+                    'Just for telegram',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: onPrimaryColor,
+                    ),
+                  ),
+                  Switch(
+                    value: useProxy,
+                    onChanged: null,
+                    activeColor: onPrimaryColor,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: containersValue
+                      .map((value) => Opacity(
+                            opacity: value.containerOpacity,
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 300),
+                              width: value.containerSize,
+                              height: value.containerSize,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: value.containerColors,
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                ),
+                                shape: BoxShape.circle,
+                              ),
+                              child: value.containerChild,
+                            ),
+                          ))
+                      .toList()),
+              const SizedBox(height: 20),
+              Container(
+                width: 300,
+                height: 70,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                        colors: [
+                          Colors.pink,
+                          Color.fromRGBO(43, 117, 147, 1.0),
+                          Colors.lightBlue
+                        ])),
+                child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const Icon(
+                        Icons.attach_money,
+                        size: 35,
+                        color: onPrimaryColor,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Buy full version',
+                            style: TextStyle(fontSize: 20, color: onPrimaryColor),
+                          ),
+                          Text(
+                            'Fast and unlimited',
+                            style: TextStyle(color: onPrimaryColor),
+                          ),
+                        ],
+                      ),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        color: onPrimaryColor,
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+    ));
   }
 }
