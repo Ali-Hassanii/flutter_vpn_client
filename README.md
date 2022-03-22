@@ -1,16 +1,21 @@
 # flutter_vpn_client
+A client for vpn connection is written in flutter.
+I am currently working on the project.
 
-A new Flutter project.
+## Installation
+You can Download App according to your operation system
+- Windows (EXE)
+  Coming soon ...
+  
+- ### [Linux](https://github.com/Ali-Hassanii/flutter_vpn_client/App/Linux.zip)
+  Extract `.zip` file and run program by double click or `./flutter_vpn_client` command.
 
-## Getting Started
+- ### MacOs
+  required Apple machine
+  
+- ### [Android (APK)](https://github.com/Ali-Hassanii/flutter_vpn_client/App/Android.ap)
+  Download and open `.APK` file.
 
-This project is a starting point for a Flutter application.
+- ### IOS
+  required Apple machine
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
