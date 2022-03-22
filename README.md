@@ -13,7 +13,7 @@ You can Download App according to your operation system
 - ### MacOs
   required Apple machine
   
-- ### [Android (APK)](https://github.com/Ali-Hassanii/flutter_vpn_client/App/Android.ap)
+- ### [Android (APK)](https://github.com/Ali-Hassanii/flutter_vpn_client/App/Android.apk)
   Download and open `.APK` file.
 
 - ### IOS
