@@ -36,12 +36,7 @@ class _LocationMenuState extends State<LocationMenu> {
     ),
   );
 
-  @override
-  void initState() {
-    super.initState();
-
-    // to looking for all servers that have been added
-    // show* a simple_widget** if there is nothing to show. (*line 60), (**line 16)
+  void _loadServers() {
     widget.storage.loadServers().then((data) {
       if (data.isNotEmpty) {
         setState(() {
@@ -52,8 +47,6 @@ class _LocationMenuState extends State<LocationMenu> {
                 padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
                 child: Card(
                   color: Colors.cyanAccent,
-                  // color: const Color.fromRGBO(
-                  //     0, 220, 211, 0.8),
                   child: ListTile(
                     title: Text(dObj['name']),
                     subtitle: Text(dObj['address']),
@@ -66,6 +59,12 @@ class _LocationMenuState extends State<LocationMenu> {
         });
       }
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadServers();
   }
 
   final Map inputInfo = {};
@@ -184,7 +183,7 @@ class _LocationMenuState extends State<LocationMenu> {
                 TextButton(
                   onPressed: () async {
                     await widget.storage.addServer(inputInfo);
-                    setState(() {});
+                    setState(() => _loadServers());
                     Navigator.pop(context);
                   },
                   child: const Text(
