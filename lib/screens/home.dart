@@ -132,15 +132,40 @@ class _HomeState extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const IconButton(
-                    onPressed: null,
-                    icon: Icon(
+                  IconButton(
+                    onPressed: () => showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        backgroundColor: Colors.blue,
+                        title: const Text(
+                          'More Info',
+                          style: TextStyle(
+                            color: onPrimaryColor,
+                          ),
+                        ),
+                        content: const Text(
+                          'You can use vpn over socks5 proxy. '
+                          'Means that it can just reach at '
+                          '"socks5://127.0.0.1:1401" address.',
+                          style: TextStyle(
+                            color: onPrimaryColor,
+                          ),
+                        ),
+                        actions: [
+                          TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: const Text('Ok',style: TextStyle(fontWeight: FontWeight.bold),)
+                          )
+                        ],
+                      )
+                    ),
+                    icon: const Icon(
                       Icons.info_outline,
                       color: onPrimaryColor,
                     ),
                   ),
                   const Text(
-                    'Just for telegram',
+                    'Over Socks5 Proxy',
                     style: TextStyle(
                       fontSize: 18,
                       color: onPrimaryColor,
