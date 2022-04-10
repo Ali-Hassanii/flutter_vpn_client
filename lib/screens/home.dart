@@ -16,16 +16,24 @@ class _HomeState extends State<Home> {
     const Color.fromRGBO(175, 79, 167, 1.0),
   ];
 
+  String connectionStatus = 'Not Connected';
+
   @override
   Widget build(BuildContext context) {
+
+    // vpn (on/off) button
     Widget containerButton = OutlinedButton(
       onPressed: () => setState(() {
         if (containersColor[0] == const Color.fromRGBO(35, 176, 219, 1.0)) {
+          // turn vpn on ( off --> on )
+          connectionStatus = 'Connected';
           containersColor = [
             const Color.fromRGBO(48, 120, 232, 1.0),
             const Color.fromRGBO(0, 253, 25, 1.0),
           ];
         } else {
+          // turn vpn off ( on --> off )
+          connectionStatus = 'Not Connected';
           containersColor = [
             const Color.fromRGBO(35, 176, 219, 1.0),
             const Color.fromRGBO(175, 79, 167, 1.0),
@@ -88,9 +96,9 @@ class _HomeState extends State<Home> {
                   )
                 ],
               ),
-              const Text(
-                'Not Connected',
-                style: TextStyle(
+              Text(
+                connectionStatus,
+                style: const TextStyle(
                   fontSize: 25,
                   color: onPrimaryColor,
                 ),
