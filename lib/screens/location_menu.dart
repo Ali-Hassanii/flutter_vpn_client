@@ -93,7 +93,7 @@ class _LocationMenuState extends State<LocationMenu> {
           onPressed: () => showDialog(
             context: context,
             builder: (BuildContext context) => AlertDialog(
-              backgroundColor: Color.fromRGBO(0, 144, 255, 1.0),
+              backgroundColor: const Color.fromRGBO(0, 144, 255, 1.0),
               title: const Text(
                   'New server info:',
                 style: TextStyle(
