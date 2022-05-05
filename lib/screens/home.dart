@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vpn_client/modules/home.dart';
+import 'package:flutter_vpn_client/screens/location_menu.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -18,9 +19,19 @@ class _HomeState extends State<Home> {
 
   String connectionStatus = 'Not Connected';
 
+  // choose server to connecting
+  late Map server;
+  void _choseServer(BuildContext context) async {
+    server = await Navigator.push(
+        context, MaterialPageRoute(builder: (context) => LocationMenu()));
+    setState(() {
+      _serverName = server['name'];
+    });
+  }
+  String _serverName = 'Choose a server';
+
   @override
   Widget build(BuildContext context) {
-
     // vpn (on/off) button
     Widget containerButton = OutlinedButton(
       onPressed: () => setState(() {
@@ -60,12 +71,12 @@ class _HomeState extends State<Home> {
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-            colors: [
-              Colors.blue,
-              Colors.deepPurple,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+              colors: [
+                Colors.blue,
+                Colors.deepPurple,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             )
           ),
           child: Column(
@@ -104,19 +115,24 @@ class _HomeState extends State<Home> {
                 ),
               ),
               OutlinedButton(
-                onPressed: () => Navigator.pushNamed(context, '/LocationMenu'),
+                onPressed: () {
+                  _choseServer(context);
+                  if (server.isNotEmpty) {
+
+                  }
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    Icon(
+                  children: [
+                    const Icon(
                       Icons.edit_location_rounded,
                       color: onPrimaryColor,
                     ),
                     Text(
-                      'Change Location',
-                      style: TextStyle(color: onPrimaryColor),
+                      _serverName,
+                      style: const TextStyle(color: onPrimaryColor),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.arrow_forward_ios,
                       color: onPrimaryColor,
                     ),
@@ -154,7 +170,10 @@ class _HomeState extends State<Home> {
                         actions: [
                           TextButton(
                               onPressed: () => Navigator.pop(context),
-                              child: const Text('Ok',style: TextStyle(fontWeight: FontWeight.bold),)
+                              child: const Text(
+                                'Ok',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
                           )
                         ],
                       )
@@ -251,6 +270,6 @@ class _HomeState extends State<Home> {
               )
             ],
           ),
-    ));
+        ));
   }
 }

@@ -24,13 +24,21 @@ class StoreServers {
   // add data
   Future<File> addServer(Map info) async {
     final String formatInfo = jsonEncode(info);
-    final File _file = await file();
+    final File _filePath = await file();
     final List data = await loadServers();
     data.add(formatInfo);
-    return _file.writeAsString(jsonEncode(data));
+    return _filePath.writeAsString(jsonEncode(data));
   }
 
-  // TODO: remove data
+  // edit data
+  Future<File> editServer(Map newInfo) async {
+    final String _newInfo = jsonEncode(newInfo);
+    final File _filePath = await file();
+    final List data = await loadServers();
+    data.remove(_newInfo);
+    _filePath.delete();
+    return _filePath.writeAsString(jsonEncode(data));
+  }
 }
 
 class TextFieldProperties {
